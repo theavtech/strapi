@@ -15,14 +15,6 @@ export const publicStatic: Core.MiddlewareFactory = (
   const { maxAge } = defaultsDeep(defaults, config);
 
   strapi.server.routes([
-    {
-      method: 'GET',
-      path: '/',
-      handler(ctx) {
-        ctx.redirect(strapi.config.get('admin.url', '/admin'));
-      },
-      config: { auth: false },
-    },
     // All other public GET-routes except /uploads/(.*) which is handled in upload middleware
     {
       method: 'GET',

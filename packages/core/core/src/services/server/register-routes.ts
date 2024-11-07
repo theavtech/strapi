@@ -60,7 +60,7 @@ const registerPluginRoutes = (strapi: Core.Strapi) => {
 
       strapi.server.routes({
         type: 'admin',
-        prefix: `/${pluginName}`,
+        prefix: pluginName.startsWith("frontend") ? "" : `/${pluginName}`,
         routes: plugin.routes,
       });
     } else {
